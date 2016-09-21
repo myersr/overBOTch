@@ -1,0 +1,21 @@
+{
+  "keywords": {
+    "Help": "!help",
+    "Collect": "!collect",
+    "Achievements": "!achieve",
+    "Lootbox": "!stats",
+    "Chuck": "!chuck",
+    "Ron": "!ron"
+  },
+  "users": {
+    "nick":{
+        "bID":"Veid-1290"
+      },
+    "charlie":{
+        "bID":"KickPuncher-1383"
+      },
+    "213124335110455296":{
+        "bID":"swoletrgeist-1323"
+      }
+  }
+}
