@@ -48,7 +48,13 @@ Lootbox.prototype.Message = function(keywords, message, callback){
                  resolved = getProfile(battleId);
                  break;
             case 2:
-                 resolved = getHeroStats(battleId);
+                 switch(contentArr[1]){
+                    case 'hero':
+                         resolved = getHero(battleId,contentArr[2]);
+                         break;
+                    case 'heroes':
+                         resolved = getHeroStats(battleId);
+                         break;
                  break;
             default:
                  resolved = 'Mistake in switch';
