@@ -20,6 +20,7 @@ var overB = new OverBOTch;
 bot.on("message", (message) =>
 {
    // console.log(message.author.id)
+   console.log(message.author.id)
     var lowerMes = message.content.toLowerCase();
     if(lowerMes in responseObject && message.author.id !== '227490034582814731') {
         message.channel.sendMessage(responseObject[lowerMes]);
