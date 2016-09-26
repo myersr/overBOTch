@@ -5,7 +5,7 @@ var http = require('http');
     Chuck = require('./overBOTch/chuck.js');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello Apache!\n');
+  res.end('Node Running!\n');
 }).listen(8000, '127.0.0.1');
 
 var responseObject = {
