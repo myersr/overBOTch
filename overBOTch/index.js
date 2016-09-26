@@ -3,6 +3,7 @@ var env = require('../config.json');
     Lootbox = require('./lootbox.js');
     Chuck = require('./chuck.js');
     Ron = require('./ron.js');
+    DamMod = require('./dam.js');
 
 var OverBOTch = function () {
    this.keywords = env.keywords;
@@ -10,6 +11,7 @@ var OverBOTch = function () {
    this.Lootbox = new Lootbox;
    this.Chuck = new Chuck;
    this.Ron = new Ron;
+   this.DamMod = new DamMod;
 };
 
 

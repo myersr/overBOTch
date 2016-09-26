@@ -13,22 +13,22 @@ var heroArr = {
         'Torbjoern':{
             'RivetGun': '  70 - Projectile',
             'Shotgun-Alt': '  6-15 x 10 - Projectile',
-            'Hammer': '  75',
+            'Hammer': '  75 melee damage',
             'Turret': '  14 per round 14 per second - Hitscan',
             'Ult': '  Plus 600 health/armour + 50% fire rate'
         }, 'Lucio':{
-        	'Amplifier': '  16 per projectile',
-        	'Soundwave': '  25',
+        	'Amplifier': '  16 per projectile, 4 a shot - Projectile',
+        	'Soundwave': '  25 damage plus boop',
         	'Ult': '  500 health for 6 Seconds'
         }, 'Soldier76':{
-        	'Rifle': '  5-17 Hitscan',
-        	'Rockets': '  120 Projectile',
+        	'Rifle': '  5-17 a bullet - Hitscan',
+        	'Rockets': '  120 - Projectile',
         	'Ult': '    6 Seconds'
         }, 'Reinhardt':{
-        	'Hammer': '  75',
-        	'Charge': '    50 init 300 on Pin',
-        	'FireStrike': '  100 Projectile',
-        	'Ult': '  50 2.5 Seconds'
+        	'Hammer': '  75 per swing',
+        	'Charge': '    50 on initial hit, 300 on Pin',
+        	'FireStrike': '  100 - Projectile',
+        	'Ult': '  50 damage stun lasts 2.5 Seconds'
         }, 'Roadhog':{
         	'CloseShot': '  2-9 per Pellet 25 Pellets - Projectile',
         	'FarShot': '  50 before burst same as CloseShot after burst - Projectile',
@@ -47,8 +47,8 @@ var heroArr = {
         	'Scatter': '  Same as bow initial shot 75 per bounce arrow - Projectile',
         	'Ult': '  Same as bow intial shot 200 per second in dragons - Projectile'
         }, 'Reaper':{
-        	'Heal': '  50 per globe',
-        	'Hellfire': '  2-7 per 20 pellet shot - Projectile',
+        	'Heal': '  50 health per globe',
+        	'Hellfire': '  2-7 per pellet, 20 pellet shot - Projectile',
         	'Wraith': '  3 Seconds',
         	'Ult': '  510 8 meter radius'
         }, 'Widowmaker':{
@@ -56,10 +56,10 @@ var heroArr = {
         	'Unscoped': '  13 at 10 rounds per second - Hitscan',
         	'Poison': '  15 per second for 5 Seconds'
         }, 'Mercy':{
-        	'Beam': '  plus 30% Damage plus 60 health a second',
+        	'Beam': '  plus 30% Damage plus or 60 health a second',
         	'Pistol': '  20 with 5 shots a second - Projectile'
         }, 'Pharah':{
-        	'Rocket': '  120 splash - Projectile',
+        	'Rocket': '  120 splash damage - Projectile',
         	'Ult': '  40 per Rocket 30 per second - Projectile'
         },'Bastion':{
         	'Unmounted': '  6-20 damage 8 per second - Hitscan',
@@ -73,7 +73,7 @@ var heroArr = {
         }, 'Zenyatta':{
         	'Orb': '  46 - Projectile',
         	'Heal': '  30 per Second',
-        	'Ult': '  300 per Second'
+        	'Ult': '  300 heals per Second'
         }, 'Genji':{
         	'Shuriken': '  28 per Shuriken 3 per shot - Projectile',
         	'Fan': '  Same shit just wider',
@@ -86,7 +86,7 @@ var heroArr = {
         	'Flash': '  25 - Projectile',
         	'Ult': '  Charges 170 per 1 second so the weaker the opponents the quicker the charge - Hitscan'
         }, 'Junkrat':{
-        	'2ndChance': '  60 per shot - Splash',
+        	'2ndChance': '  60 per drop - Splash',
         	'Launcher': '  120 - 2 meter Splash',
         	'Mine': '  120 - Splash',
         	'Trap': '  80 damage 1 second stun 3 Second root',
@@ -106,7 +106,7 @@ var heroArr = {
         	'Ult': '  1000 after 3 seconds'
         }, 'Mei':{
         	'Beam': '  45 a second',
-        	'Icicle': '  22-75 with fallout after 26 meters - Projectile',
+        	'Icicle': '  22-75 with falloff after 26 meters - Projectile',
         	'CryoFreeze': '  heals 150 duration of 4 seconds',
         	'Wall': '  500 health per pillar',
         	'Ult': '  97 damage over 5 seconds'
@@ -124,7 +124,8 @@ var matchDict = function(heroInput){
     var pos = 0;
     var matched = false;
     for( hero in heroArr ){
-       if( heroArr[hero].toLowerCase().indexOf( heroInput.toLowerCase() ) > -1){
+       console.log(hero)
+       if( hero.toLowerCase().indexOf( heroInput.toLowerCase() ) > -1){
            matched = true;
            return hero;
        }
@@ -148,8 +149,15 @@ DamMod.prototype.getKeywords = function()
 
 DamMod.prototype.Message = function(keywords, message, callback)
 {
-    var words = '\n   '+ this.getKeywords() + '';
-    return callback("overBOTch Commands: " + words.split(',').join(',\n   '));
+    var mesArr = message.content.split(' ');
+    var words = matchDict(mesArr[1])
+    var returnMessage = 'Hero: \t'+ words;
+    var moves = heroArr[words]
+    for( move in moves){
+         returnMessage = returnMessage + ',\n   '+move+':  ' + moves[move]
+    }
+
+    return callback(returnMessage);
 }
 
 module.exports = DamMod;

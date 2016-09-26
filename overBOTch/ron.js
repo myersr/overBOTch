@@ -16,7 +16,7 @@ Ron.prototype.Message = function(keywords, message, callback)
     );
     promiseCall.then(
        function(val) {
-           var quote = "`**Ron Swanson ~ ***\""
+           var quote = "`**Ron Swanson ~** ***\""
            quote = quote + val + "\"***`"
            return callback(quote)
        }

@@ -5,7 +5,8 @@
     "Achievements": "!achieve",
     "Lootbox": "!stats",
     "Chuck": "!chuck",
-    "Ron": "!ron"
+    "Ron": "!ron",
+    "DamMod": "!dam"
   },
   "users": {
     "nick":{
