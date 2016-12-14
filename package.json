@@ -1,17 +1,25 @@
 {
   "name": "overwatchBot",
   "description": "A chat bot for overwatch and discord",
-   "author": {
-      "name": "Roy Myers"
-   }, 
+  "author": {
+    "name": "Roy Myers"
+  },
   "main": "main.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "discord.js": "^3.6.2"
-    },
+  },
   "keywords": [
     "insombot"
-  ]
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.0.0",
+    "jshint": "^2.9.4"
+  }
 }
