@@ -52,4 +52,3 @@ bot.on('disconnected', function () {
 });
 
 
-bot.login("MjI3NDkwMDM0NTgyODE0NzMx.CsG8KA.7IaNAZWMZuij8B6MPUzwxPb80oQ");
