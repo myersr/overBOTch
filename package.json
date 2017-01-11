@@ -9,7 +9,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "discord.js": "^3.6.2"
+    "discord.js": "^10.0.1"
     },
   "keywords": [
     "insombot"

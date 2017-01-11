@@ -51,4 +51,4 @@ bot.on('disconnected', function () {
     process.exit(1);
 });
 
-
+bot.login(process.env.BOT_KEY)
